@@ -69,7 +69,7 @@ def analyseImage():
                     'LIKELY', 'VERY_LIKELY']
         
         os.remove(f.filename)
-        result = "This is cyberbullying material"
+        result = "Potential mental illness impact, assault, bullying behaviour detected"
         
         for i in range(3):
             if adult == negativeList[i]:
@@ -84,7 +84,7 @@ def analyseImage():
             if racy == negativeList[i]:
                 return render_template("index.html", result = result)
        
-        result = "This is not cyberbullying material"
+        result = "No potential mental illness impact, assault, bullying behaviour detected"
         return render_template("index.html", result = result)
 
 if __name__ == '__main__':
