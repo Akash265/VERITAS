@@ -13,7 +13,14 @@
       ></textarea>
       <button onclick="analyzeComment()">Analyze</button>
     </div>
-
+    <div class="container">
+        <div class="image">
+            <form action = "/analyseImage" method = "post" enctype="multipart/form-data">  
+                <input type="file" name="file" />  
+                <input type = "submit" value="Upload" class="btn">  
+            </form>  
+        </div>
+    </div>
     <script src="../static/script.js"></script>
   </body>
 </html>
