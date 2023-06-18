@@ -42,7 +42,7 @@ def analyze():
     return jsonify({'analysis': analysis_result})
 
 @app.route('/analyseImage', methods = ['POST'])  
-def success():  
+def analyseImage():  
     if request.method == 'POST':  
         f = request.files['file']
         f.save(f.filename)  
@@ -66,23 +66,28 @@ def success():
         spoof = likelihood_name[safe.spoof]
         violence = likelihood_name[safe.violence]
         racy = likelihood_name[safe.racy]
-        negativeList = ['UNLIKELY', 'POSSIBLE',
+
+        negativeList = ['POSSIBLE',
                     'LIKELY', 'VERY_LIKELY']
         
         os.remove(f.filename)
         result = "This is cyberbullying material"
         
-        for i in range(4):
+        for i in range(3):
             if adult == negativeList[i]:
-                return jsonify({'analysis': result})
+                return render_template("index.html", result = result)
+                
             if spoof == negativeList[i]:
-                return jsonify({'analysis': result})
+                return render_template("index.html", result = result)
+                
             if violence == negativeList[i]:
-                return jsonify({'analysis': result})
+                return render_template("index.html", result = result)
+                
             if racy == negativeList[i]:
-                return jsonify({'analysis': result})
-            
-        return jsonify({'analysis': "This is not cyberbullying material"})
+                return render_template("index.html", result = result)
+       
+        result = "This is not cyberbullying material"
+        return render_template("index.html", result = result)
 
 if __name__ == '__main__':
     app.run(debug=True)
