@@ -17,8 +17,11 @@
         <div class="image">
             <form action = "/analyseImage" method = "post" enctype="multipart/form-data">  
                 <input type="file" name="file" />  
-                <input type = "submit" value="Upload" class="btn">  
-            </form>  
+                <button>Upload</button>
+                
+            </form> 
+            <h1>Verdict of Image:</h1> 
+            <h2>{{result}}</h2>
         </div>
     </div>
     <script src="../static/script.js"></script>
