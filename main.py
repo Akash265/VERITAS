@@ -1,6 +1,4 @@
 import detoxify
-import requests
-from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, request, jsonify
 
@@ -23,7 +21,7 @@ def analyze_comment(text):
     if predictions[score] > 0.5:
         return f"{score} detected"
     else:
-        return f"No problem detected"
+        return "No problem detected"
 
 @app.route('/')
 def index():
